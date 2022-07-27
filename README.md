@@ -24,7 +24,7 @@ _$a, $base and $c are trian sides, $base is the base and $height is the height_
 > http://127.0.0.1:8000/api/circle/{area}
 
 ## To test Service
-_I have put static datas directly inside the code for service testing, because datas was not persit in the database but you can inspect methods inside GeometryCalculator service to understand_
+_I have put static datas directly inside the code for service testing, because datas was not persit in the database but you can inspect methods inside **GeometryCalculator** service to understand_
 ### To test the sum of areas for two or more given Geometry objects consult (_service_)
 > http://127.0.0.1:8000/api/geometry/areas-sum
 
