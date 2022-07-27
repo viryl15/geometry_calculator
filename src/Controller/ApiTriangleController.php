@@ -22,6 +22,7 @@ class ApiTriangleController extends AbstractController
             'a' => $triangle->getA(),
             'base' => $triangle->getBase(),
             'c' => $triangle->getC(),
+            'height' => $triangle->getHeight(),
             'surface' => $triangle->getSurface(),
             'circumference' => $triangle->getCircumference()
         ]);

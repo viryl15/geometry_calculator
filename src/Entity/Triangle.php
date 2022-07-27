@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TriangleRepository::class)
  */
-class Triangle
+class Triangle extends GeometryFigure
 {
     /**
      * @ORM\Id
@@ -16,11 +16,6 @@ class Triangle
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $type;
 
     /**
      * @ORM\Column(type="float")
@@ -42,25 +37,13 @@ class Triangle
      */
     private $height;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $surface;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $circumference;
-
     public function __construct($a, $base, $c, $height)
     {
-        $this->type = 'triangle';
+        parent::__construct('triangle', $this->surface($base, $height), $this->circumference($a, $base, $c));
         $this->a = $a;
         $this->base = $base;
         $this->c = $c;
         $this->height = $height;
-        $this->surface = $this->surface($base, $height);
-        $this->circumference = $this->circumference($a, $base, $c);
     }
 
     public function getId(): ?int
@@ -116,46 +99,9 @@ class Triangle
         return $this;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getSurface(): ?float
-    {
-        return $this->surface;
-    }
-
-    public function setSurface(float $surface): self
-    {
-        $this->surface = $surface;
-
-        return $this;
-    }
-
-    public function getCircumference(): ?float
-    {
-        return $this->circumference;
-    }
-
-    public function setCircumference(float $circumference): self
-    {
-        $this->circumference = $circumference;
-
-        return $this;
-    }
-
-
     public function surface($base, $height)
     {
-        return $base * $height / 2;
+        return ($base * $height) / 2;
     }
 
     public function circumference($a, $base, $c)

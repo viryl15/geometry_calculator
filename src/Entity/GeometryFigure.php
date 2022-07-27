@@ -11,13 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class GeometryFigure
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=10)
      */
     private $type;
@@ -35,9 +28,7 @@ class GeometryFigure
     public function __construct($type, $surface, $circumference)
     {
         $this->type = $type;
-        // $this->radius = $radius;
         $this->surface = $surface;
-        // $this->diameter = $this->diameter;
         $this->circumference = $circumference;
     }
 
