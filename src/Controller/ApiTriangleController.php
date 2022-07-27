@@ -11,12 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ApiTriangleController extends AbstractController
 {
     /**
-     * @Route("/api/triangle/{a}/{base}/{c}/{height}", name="app_api_triangle", methods={"GET"})
+     * @Route("/api/triangle/{a<\d+>}/{base<\d+>}/{c<\d+>}/{height<\d+>}", name="app_api_triangle", methods={"GET"})
      */
-    public function index(Request $request): JsonResponse
+    public function index($a, $base, $c, $height): JsonResponse
     {
-        $params = $request->attributes->all();
-        $triangle = new Triangle($params['a'], $params['base'], $params['c'], $params['height']);
+        // $params = $request->attributes->all();
+        $triangle = new Triangle($a, $base, $c, $height);
         return $this->json([
             'type' => $triangle->getType(),
             'a' => $triangle->getA(),
