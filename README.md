@@ -18,7 +18,7 @@ _I have create a parent class **GeometryFigure** to facilitate service implement
 
 ### For Triangle model use
 > http://127.0.0.1:8000/api/triangle/{a}/{base}/{c}/{height}
-_$a, $base and $c are trian sides, $base is the base and $height is the height_
+_$a, $base and $c are triangle sides, $base is the base and $height is the height_
 
 ### For Circle model use
 > http://127.0.0.1:8000/api/circle/{area}
